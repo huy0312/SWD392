@@ -25,19 +25,35 @@ public class LoginController extends HttpServlet {
             User user = userDAO.loginUser(email, password);
             if (user != null) {
                 if (!user.isVerified()) {
-                    response.sendRedirect("login.jsp?error=not_verified"); 
+                    response.sendRedirect("login.jsp?error=not_verified");
                     return;
                 }
-                HttpSession session = request.getSession(); 
+
+                HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                response.sendRedirect("dashboard.jsp");
+
+                // Điều hướng trực tiếp theo vai trò
+                switch (user.getRole()) {
+                    case "PATIENT":
+                        response.sendRedirect("patient/dashboard.jsp");
+                        break;
+                    case "DOCTOR":
+                        response.sendRedirect("doctor/doctor-dashboard.jsp");
+                        break;
+                    case "ADMIN":
+                        response.sendRedirect("admin/admin-dashboard.jsp");
+                        break;
+                    default:
+                        response.sendRedirect("login.jsp?error=invalid_role");
+                        break;
+                }
             } else {
                 response.sendRedirect("login.jsp?error=invalid");
             }
         } else if ("logout".equals(action)) {
-            HttpSession session = request.getSession(false); 
+            HttpSession session = request.getSession(false);
             if (session != null) {
-                session.invalidate(); 
+                session.invalidate();
             }
             response.sendRedirect("login.jsp?logout=1");
         }
