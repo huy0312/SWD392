@@ -11,6 +11,11 @@ public class Patient {
     private String phone;
     private String address;
 
+    public Patient() {
+    }
+    
+    
+
     public Patient(int id, User user, String dateOfBirth, String phone, String address) {
         this.id = id;
         this.user = user;
@@ -24,5 +29,27 @@ public class Patient {
     public String getDateOfBirth() { return dateOfBirth; }
     public String getPhone() { return phone; }
     public String getAddress() { return address; }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    
 }
 
