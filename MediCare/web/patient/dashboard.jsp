@@ -102,38 +102,38 @@
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Drug & Supplements</h5>
-                            <p class="card-text">Mua thuốc và thực phẩm bổ sung.</p>
-                            <a href="DrugServlet" class="btn btn-primary">Xem ngay</a>
+                            <h5 class="card-title">💊 Danh sách thuốc</h5>
+                            <p class="card-text">Xem thông tin thuốc hiện có trong hệ thống.</p>
+                            <a href="<%= request.getContextPath() %>/MedicationController" class="btn btn-primary">Xem ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Feedback</h5>
+                                <p class="card-text">Gửi phản hồi về dịch vụ.</p>
+                                <a href="FeedbackServlet" class="btn btn-primary">Gửi phản hồi</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Đặt lịch khám</h5>
+                                <p class="card-text">Hẹn lịch với bác sĩ.</p>
+                                <a href="AppointmentServlet" class="btn btn-primary">Đặt lịch</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Feedback</h5>
-                            <p class="card-text">Gửi phản hồi về dịch vụ.</p>
-                            <a href="FeedbackServlet" class="btn btn-primary">Gửi phản hồi</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Đặt lịch khám</h5>
-                            <p class="card-text">Hẹn lịch với bác sĩ.</p>
-                            <a href="AppointmentServlet" class="btn btn-primary">Đặt lịch</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
