@@ -20,9 +20,10 @@
             }
         %>
 
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="#">WebMed</a>
+                <a class="navbar-brand fw-bold" href="#">WebMed</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,18 +44,30 @@
                         <li class="nav-item">
                             <a class="nav-link" href="AppointmentServlet">Book Appointment</a>
                         </li>
-                        <li class="nav-item">
-                            <form action="${pageContext.request.contextPath}/LoginController" method="post">
-                                <input type="hidden" name="action" value="logout">
-                                <button type="submit" class="btn btn-danger">Đăng xuất</button>
-                            </form>
 
+                        <!-- Nút "Sửa hồ sơ" CHỈ HIỂN THỊ nếu user là Patient -->
+                        <% if ("PATIENT".equals(user.getRole())) { %>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning fw-bold" href="<%= request.getContextPath() %>/PatientProfileController">
+                                ✏️ Sửa hồ sơ
+                            </a>
+
+                        </li>
+                        <% } %>
+
+                        <!-- Nút Logout -->
+                        <li class="nav-item">
+                            <form action="<%= request.getContextPath() %>/LoginController" method="post">
+                                <input type="hidden" name="action" value="logout">
+                                <button type="submit" class="btn btn-danger ms-2">Đăng xuất</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
+        <!-- Nội dung chính -->
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -117,29 +130,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-danger">Đăng xuất</h5>
-                            <p class="card-text">Thoát khỏi hệ thống.</p>
-                            <form action="LoginController" method="post">
-                                <input type="hidden" name="action" value="logout">
-                                <button type="submit" class="btn btn-danger">Đăng xuất</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-            <!-- Nếu user là Patient thì hiển thị nút "Edit Profile" -->
-            <% if ("PATIENT".equals(user.getRole())) { %>
-            <div class="row mt-4">
-                <div class="col-md-12 text-center">
-                    <a href="edit-profile.jsp" class="btn btn-warning">Edit Profile</a>
-                </div>
-            </div>
-            <% } %>
         </div>
 
         <!-- Bootstrap JS -->
