@@ -14,11 +14,11 @@ public class DoctorDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return new Doctor(
-                    rs.getInt("id"),
-                    new User(userId, null, null, null, "DOCTOR", true),
-                    rs.getString("specialization"),
-                    rs.getInt("experience_years"),
-                    rs.getString("hospital")
+                        rs.getInt("id"),
+                        new User(userId, null, null, null, "DOCTOR", true),
+                        rs.getString("specialization"),
+                        rs.getInt("experience_years"),
+                        rs.getString("hospital")
                 );
             }
         } catch (SQLException e) {

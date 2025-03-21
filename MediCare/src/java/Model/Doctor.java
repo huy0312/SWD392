@@ -11,6 +11,10 @@ public class Doctor {
     private int experienceYears;
     private String hospital;
 
+    public Doctor() {
+    }
+    
+
     public Doctor(int id, User user, String specialization, int experienceYears, String hospital) {
         this.id = id;
         this.user = user;
@@ -24,6 +28,27 @@ public class Doctor {
     public String getSpecialization() { return specialization; }
     public int getExperienceYears() { return experienceYears; }
     public String getHospital() { return hospital; }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public void setExperienceYears(int experienceYears) {
+        this.experienceYears = experienceYears;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+    
     
     
 }
